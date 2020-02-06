@@ -24,6 +24,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/extensions': ['error', 'ignorePackages', { ts: 'never' }],
     'no-useless-constructor': 'off',
+    'new-cap': 'off',
   },
   overrides: [
     {

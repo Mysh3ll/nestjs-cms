@@ -3,10 +3,17 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ArticlesModule } from './articles/articles.module';
-import config from '../config';
+
+import config from './config';
 
 @Module({
-  imports: [ArticlesModule, MongooseModule.forRoot(config.mongoUri)],
+  imports: [
+    MongooseModule.forRoot(config.mongoUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }),
+    ArticlesModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
