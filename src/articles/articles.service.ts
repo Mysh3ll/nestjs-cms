@@ -11,7 +11,7 @@ export class ArticlesService {
   ) {}
 
   async findAll(): Promise<Article[]> {
-    return this.articleModel.find().exec();
+    return this.articleModel.find().sort({ creationDate: -1}).exec();
   }
 
   async create(createArticleDto: CreateArticleDto): Promise<Article> {
