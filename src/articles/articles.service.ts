@@ -11,11 +11,18 @@ export class ArticlesService {
   ) {}
 
   async findAll(): Promise<Article[]> {
-    return this.articleModel.find().sort({ creationDate: -1}).exec();
+    return this.articleModel
+      .find()
+      .sort({ creationDate: -1 })
+      .exec();
   }
 
   async create(createArticleDto: CreateArticleDto): Promise<Article> {
     const createdArticle = new this.articleModel(createArticleDto);
     return createdArticle.save();
+  }
+
+  async delete(id: string): Promise<Article> {
+    return this.articleModel.findByIdAndRemove(id);
   }
 }

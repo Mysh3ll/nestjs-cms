@@ -11,6 +11,7 @@ import config from './config';
     MongooseModule.forRoot(config.mongoUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useFindAndModify: false,
     }),
     ArticlesModule,
   ],
